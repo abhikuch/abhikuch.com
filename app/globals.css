@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+:root {
+  --desk: #e4dccf;
+  --paper: #f6f1e8;
+  --ink: #1c1915;
+  --muted: #4e4942;
+  --line: #d5cbbd;
+  --copper: #8a4630;
+  --copper-soft: #f3e4db;
+}
+
+@theme inline {
+  --color-desk: var(--desk);
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-copper: var(--copper);
+  --color-copper-soft: var(--copper-soft);
+  --font-serif: var(--font-fraunces);
+  --font-text: var(--font-literata);
+  --font-mono: var(--font-plex);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  margin: 0;
+  background: var(--desk);
+  color: var(--ink);
+  font-family: var(--font-text), "Iowan Old Style", Palatino, serif;
+  font-size: 1.0625rem;
+  line-height: 1.55;
+}
+
+a {
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  color: var(--copper);
+}
+
+:focus-visible {
+  outline: 2px solid var(--copper);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: #ead3c6;
+}
