@@ -1,30 +1,21 @@
 import type { Metadata } from "next";
 import { Unwritten } from "@/components/unwritten";
+import { PageHeader } from "@/components/page-header";
+import { writingPiece } from "@/lib/facts";
 
 export const metadata: Metadata = {
   title: "Writing",
-  description: "No writing by Abhimanyu Kucheria is published on this site yet.",
+  description: `${writingPiece.text} ${writingPiece.gap}`,
 };
 
 export default function WritingPage() {
   return (
-    <article className="max-w-xl">
-      <p className="m-0 font-mono text-[0.72rem] tracking-[0.18em] text-copper uppercase">
-        03
+    <article className="flex max-w-xl flex-col gap-8">
+      <PageHeader index="03" title="Writing" />
+      <p className="m-0 font-serif text-[1.7rem] leading-tight tracking-[-0.03em]">
+        {writingPiece.text}
       </p>
-      <h1 className="mt-3 mb-4 font-serif text-[2.8rem] leading-none font-normal tracking-[-0.04em]">
-        Writing
-      </h1>
-      <p className="m-0">
-        No essays, notes, or posts are published here yet. When something is
-        written for this site, it will be listed on this page.
-      </p>
-      <div className="mt-8">
-        <Unwritten
-          label="Pieces"
-          note="Not published yet. There is no archive to browse."
-        />
-      </div>
+      <Unwritten label="Essay" note={writingPiece.gap} />
     </article>
   );
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Fraunces, IBM_Plex_Mono, Literata } from "next/font/google";
 import { SiteShell } from "@/components/site-shell";
+import { identity, personJsonLd, websiteJsonLd } from "@/lib/facts";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -23,17 +24,15 @@ const plex = IBM_Plex_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://abhikuch.com"),
   title: {
-    default: "Abhimanyu Kucheria",
-    template: "%s — Abhimanyu Kucheria",
+    default: identity.name,
+    template: `%s — ${identity.name}`,
   },
-  description:
-    "Public index for Abhimanyu Kucheria in Dubai, at Futurebits Tech. Biography, work, and writing are not filled in yet.",
+  description: identity.sentence,
   openGraph: {
-    title: "Abhimanyu Kucheria",
-    description:
-      "Public index for Abhimanyu Kucheria in Dubai. The longer pages are still unwritten.",
+    title: identity.name,
+    description: identity.sentence,
     url: "https://abhikuch.com",
-    siteName: "Abhimanyu Kucheria",
+    siteName: identity.name,
     locale: "en_AE",
     type: "website",
   },
@@ -50,6 +49,14 @@ export default function RootLayout({
       className={`${fraunces.variable} ${literata.variable} ${plex.variable} h-full antialiased`}
     >
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
         <SiteShell>{children}</SiteShell>
       </body>
     </html>

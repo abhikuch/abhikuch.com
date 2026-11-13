@@ -1,18 +1,15 @@
+import { identity, profiles } from "@/lib/facts";
+
 export const site = {
-  name: "Abhimanyu Kucheria",
+  name: identity.name,
   short: "AK",
-  place: "Dubai",
-  company: "Futurebits Tech",
-  githubBio: "Building cool things at @Futurebits-Tech.",
-  email: "abhi141997@gmail.com",
-  github: {
-    handle: "abhikuch",
-    href: "https://github.com/abhikuch",
-  },
-  x: {
-    handle: "@abhi_kucheria",
-    href: "https://x.com/abhi_kucheria",
-  },
+  place: identity.place,
+  company: identity.githubCompany,
+  githubBio: identity.githubBio,
+  email: identity.email,
+  github: profiles.github,
+  x: profiles.x,
+  cal: profiles.cal,
 } as const;
 
 export const nav = [
